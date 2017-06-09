@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+  <script src="http://localhost:8080/auth/js/keycloak.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+
+      var keycloak = Keycloak({
+        url: 'http://localhost:8080/auth',
+        realm: 'authorization-code-demo',
+        clientId: 'gui'
+      });
+      keycloak.init({
+        onLoad: 'login-required'
+      }).success(function(authenticated) {
+          if (authenticated) {
+            $("#username").html("username: " + keycloak.tokenParsed.preferred_username);
+            $("#token").html("token: " + keycloak.token);
+          } else {
+            alert("Not authenticated")
+          }
+      });
+
+      $("#logout").click(function() {
+        keycloak.logout();
+      });
+
+      var retrieveData = function(role) {
+        keycloak.updateToken(30).success(function() {
+          $("#token").html("token: " + keycloak.token);
+          $.ajax({
+            type: 'GET',
+            url: '/api/'+ role + '/data',
+            contentType: 'application/json',
+            dataType: 'json',
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader ("Authorization", 'Bearer ' + keycloak.token);
+            },
+            success: function(data) {
+              $("#data").html("data: " + JSON.stringify(data));
+            },
+            error: function() {
+              console.log("data not received");
+            },
+            processData: false
+          });
+        }).error(function() {
+          alert('Failed to refresh token');
+        });
+      };
+
+      $("#retrieve-manager-data").click(function() { retrieveData('manager') });
+      $("#retrieve-owner-data").click(function() { retrieveData('owner') });
+
+    });
+  </script>
+</head>
+<html>
+<body>
+
+<p><button id="logout">Logout</button></p>
+<p>
+<div id="username"></div>
+<div id="token"></div>
+
+<p>
+<button id="retrieve-manager-data">get manager data</button>
+</p>
+<p>
+  <button id="retrieve-owner-data">get owner data</button>
+</p>
+<p>
+<div id="data"></div>
+
+
+</body>
+</html>

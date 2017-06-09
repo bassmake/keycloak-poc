@@ -1,0 +1,13 @@
+server.port: 9000
+
+keycloak:
+  realm: authorization-code-demo
+  auth-server-url: http://localhost:8080/auth
+  ssl-required: external
+  resource: spring-boot-client
+  credentials:
+    secret: c76fb691-7586-4825-9fc4-0142fc33eb95
+
+logging:
+  level:
+    root: INFO

@@ -3,7 +3,7 @@ plugins {
   id 'java'
 }
 
-group 'com.wirecard.ms.vas'
+group 'sk.bsmk.poc'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'

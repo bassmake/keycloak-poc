@@ -1,4 +1,4 @@
-package com.wirecard.ms.vas.keycloak.config;
+package sk.bsmk.poc.keycloak.config;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;

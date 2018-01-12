@@ -1,4 +1,4 @@
-package com.wirecard.ms.vas.keycloak.logging;
+package sk.bsmk.poc.keycloak.logging;
 
 import org.apache.commons.io.IOUtils;
 import org.keycloak.util.BasicAuthHelper;

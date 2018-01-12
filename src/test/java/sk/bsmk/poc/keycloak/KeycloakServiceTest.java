@@ -1,8 +1,8 @@
-package com.wirecard.ms.vas.keycloak;
+package sk.bsmk.poc.keycloak;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.wirecard.ms.vas.keycloak.services.KeycloakService;
+import sk.bsmk.poc.keycloak.services.KeycloakService;
 import org.junit.Test;
 import org.keycloak.jose.jws.JWSInput;
 import org.keycloak.jose.jws.JWSInputException;

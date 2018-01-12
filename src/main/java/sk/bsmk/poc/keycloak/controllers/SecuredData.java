@@ -1,4 +1,4 @@
-package com.wirecard.ms.vas.keycloak.controllers;
+package sk.bsmk.poc.keycloak.controllers;
 
 public class SecuredData {
 

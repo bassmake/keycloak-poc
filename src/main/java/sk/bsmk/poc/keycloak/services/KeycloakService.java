@@ -1,6 +1,6 @@
-package com.wirecard.ms.vas.keycloak.services;
+package sk.bsmk.poc.keycloak.services;
 
-import com.wirecard.ms.vas.keycloak.logging.LoggingFilter;
+import sk.bsmk.poc.keycloak.logging.LoggingFilter;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.keycloak.OAuth2Constants;

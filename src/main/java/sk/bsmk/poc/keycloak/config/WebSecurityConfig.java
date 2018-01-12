@@ -45,7 +45,9 @@ public class WebSecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
       .antMatchers("/api/owner/**").hasRole("owner")
       .antMatchers("/api/manager/**").hasRole("manager")
       .antMatchers("/authorized-api/**").authenticated()
-      .anyRequest().permitAll();
+      .anyRequest().permitAll()
+      .and()
+      .csrf().disable();
   }
 
   @Bean

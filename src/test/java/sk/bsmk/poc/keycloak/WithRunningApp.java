@@ -28,4 +28,21 @@ public abstract class WithRunningApp {
       .log().all();
   }
 
+  public String managerToken() {
+    return service.directAccessGrantNonConfidentialClient(
+      KeycloakServiceTest.REALM,
+      "non-confidential-client",
+      "manager-user",
+      "pass"
+    ).getToken();
+  }
+
+  public String ownerToken() {
+    return service.directAccessGrantNonConfidentialClient(
+      KeycloakServiceTest.REALM,
+      "non-confidential-client",
+      "owner-user",
+      "pass"
+    ).getToken();
+  }
 }

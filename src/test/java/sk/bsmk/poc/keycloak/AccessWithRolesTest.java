@@ -12,12 +12,7 @@ public class AccessWithRolesTest extends WithRunningApp {
   @Test
   public void thatOwnerCanAccessHisData() {
 
-    final String token = service.directAccessGrantNonConfidentialClient(
-      KeycloakServiceTest.REALM,
-      "non-confidential-client",
-      "owner-user",
-      "pass"
-    ).getToken();
+    final String token = ownerToken();
 
     withToken(token)
       .get("/api/owner/data")
@@ -28,12 +23,7 @@ public class AccessWithRolesTest extends WithRunningApp {
 
   @Test
   public void thatManagerCanAccessHisData() {
-    final String token = service.directAccessGrantNonConfidentialClient(
-      KeycloakServiceTest.REALM,
-      "non-confidential-client",
-      "manager-user",
-      "pass"
-    ).getToken();
+    final String token = managerToken();
 
     withToken(token)
       .get("/api/manager/data")

@@ -20,7 +20,6 @@ public class AuthorizedAccessTest extends WithRunningApp {
 
   @Test
   public void getResourceCanByAccessedByManager() {
-
     final String token = managerToken();
 
     withToken(token)
@@ -32,7 +31,6 @@ public class AuthorizedAccessTest extends WithRunningApp {
 
   @Test
   public void postResourceCannotBeAccessedByManager() {
-
     final String token = managerToken();
 
     withToken(token)
@@ -52,6 +50,5 @@ public class AuthorizedAccessTest extends WithRunningApp {
       .log().all()
       .statusCode(200);
   }
-
 
 }

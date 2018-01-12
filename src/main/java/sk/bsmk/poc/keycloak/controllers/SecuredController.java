@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
@@ -28,6 +29,16 @@ public class SecuredController {
     logUserInfo(principal);
     log.info("returning data");
     return ResponseEntity.ok(new SecuredData("I should be available for manager role"));
+  }
+
+  @GetMapping("/authorized-api/resource")
+  public String getAuthorized() {
+    return "GET authorized";
+  }
+
+  @PostMapping("/authorized-api/resource")
+  public String postAuthorized() {
+    return "POST authorized";
   }
 
   private static void logUserInfo(Principal principal) {

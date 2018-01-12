@@ -2,12 +2,15 @@ server.port: 9000
 
 keycloak:
   realm: keycloak-poc
+  bearer-only: true
   auth-server-url: http://localhost:8080/auth
   ssl-required: external
-  resource: spring-boot-client
+  resource: authorized-client
   credentials:
-    secret: c76fb691-7586-4825-9fc4-0142fc33eb95
+    secret: 8e225b9f-7bd4-4e8f-9391-3bd02021279f
+#  policy-enforcer:
 
 logging:
   level:
     root: INFO
+

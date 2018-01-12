@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 public class KeycloakServiceTest {
 
   private static final Logger log = LoggerFactory.getLogger(KeycloakServiceTest.class);
+  public static final String REALM = "keycloak-poc";
 
   private final ObjectMapper mapper = new ObjectMapper();
   private final ObjectWriter prettyPrinter = mapper.writerWithDefaultPrettyPrinter();
@@ -21,9 +22,9 @@ public class KeycloakServiceTest {
   @Test
   public void clientCredentialsGrant() throws Exception {
     final AccessTokenResponse response = service.clientCredentialsGrant(
-      "master",
+      REALM,
       "client-with-service-account",
-      "cba42568-12bb-4b03-83f3-51f0676ce380"
+      "d88c2a02-1275-4cdf-8ef9-2679c271c5db"
     );
 
     log(response);
@@ -32,9 +33,9 @@ public class KeycloakServiceTest {
   @Test
   public void directAccessGrantsConfidentialClient() throws Exception {
     final AccessTokenResponse response =  service.directAccessGrantConfidentialClient(
-      "master",
+      REALM,
       "confidential-client",
-      "8040e947-2b9f-462c-b659-ed38f76fa115",
+      "52dafc8a-a034-49fc-8cf7-b8bacc40fabd",
       "test-user",
       "password"
     );
@@ -45,7 +46,7 @@ public class KeycloakServiceTest {
   @Test
   public void directAccessGrantsNonConfidentialClient() throws Exception {
     final AccessTokenResponse response =  service.directAccessGrantNonConfidentialClient(
-      "master",
+      REALM,
       "non-confidential-client",
       "test-user",
       "password"

@@ -1,5 +1,5 @@
 plugins {
-  id 'org.springframework.boot' version '1.5.8.RELEASE'
+  id 'org.springframework.boot' version '1.5.9.RELEASE'
   id 'java'
 }
 
@@ -17,7 +17,7 @@ repositories {
 }
 
 ext {
-  keycloakVersion = '3.3.0.CR2'
+  keycloakVersion = '3.2.1.Final'
   resteasyVersion = '3.1.4.Final'
 }
 
@@ -29,7 +29,7 @@ dependencies {
   compile("org.keycloak:keycloak-spring-boot-starter:$keycloakVersion")
   compile("org.jboss.resteasy:resteasy-client:$resteasyVersion")
   compile("org.jboss.resteasy:resteasy-jackson2-provider:$resteasyVersion")
-  compile("org.keycloak:keycloak-admin-client:3.1.0.Final")
+  compile("org.keycloak:keycloak-admin-client:$keycloakVersion")
 
   testCompile("org.springframework.boot:spring-boot-starter-test")
 }

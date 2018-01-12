@@ -32,4 +32,15 @@ public class AccessWithRolesTest extends WithRunningApp {
       .log().all();
   }
 
+  @Test
+  public void thatManagerCannotAccessOwnerData() {
+    final String token = managerToken();
+
+    withToken(token)
+      .get("/api/owner/data")
+      .then()
+      .statusCode(403)
+      .log().all();
+  }
+
 }

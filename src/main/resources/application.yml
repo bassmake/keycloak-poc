@@ -1,7 +1,7 @@
 server.port: 9000
 
 keycloak:
-  realm: authorization-code-demo
+  realm: keycloak-poc
   auth-server-url: http://localhost:8080/auth
   ssl-required: external
   resource: spring-boot-client

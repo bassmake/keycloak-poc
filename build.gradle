@@ -32,6 +32,7 @@ dependencies {
   compile("org.keycloak:keycloak-admin-client:$keycloakVersion")
 
   testCompile("org.springframework.boot:spring-boot-starter-test")
+  testCompile("io.rest-assured:rest-assured:3.0.6")
 }
 
 task wrapper(type: Wrapper) {

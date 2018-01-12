@@ -37,7 +37,7 @@ public class AuthorizedAccessTest extends WithRunningApp {
       .post("/authorized-api/resource")
       .then()
       .log().all()
-      .statusCode(200);
+      .statusCode(401);
   }
 
   @Test

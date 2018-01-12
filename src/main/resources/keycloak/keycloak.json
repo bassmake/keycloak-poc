@@ -10,7 +10,17 @@
     "paths": [
       {
         "name" : "resource",
-        "path" : "/authorized-api/resource"
+        "path" : "/authorized-api/resource",
+        "methods" : [
+          {
+            "method": "GET",
+            "scopes" : ["GET"]
+          },
+          {
+            "method": "POST",
+            "scopes" : ["POST"]
+          }
+        ]
       }
     ]
   }

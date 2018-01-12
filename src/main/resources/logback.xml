@@ -8,7 +8,7 @@
     </encoder>
   </appender>
 
-  <root level="debug">
+  <root level="info">
     <appender-ref ref="STDOUT" />
   </root>
 
@@ -16,7 +16,7 @@
     <appender-ref ref="STDOUT" />
   </logger>
 
-  <logger name="org.keycloak" level="debug" additivity="false">
+  <logger name="org.keycloak" level="info" additivity="false">
     <appender-ref ref="STDOUT" />
   </logger>
 

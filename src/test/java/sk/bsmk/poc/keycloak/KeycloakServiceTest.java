@@ -24,7 +24,7 @@ public class KeycloakServiceTest {
     final AccessTokenResponse response = service.clientCredentialsGrant(
       REALM,
       "client-with-service-account",
-      "d88c2a02-1275-4cdf-8ef9-2679c271c5db"
+      "9a9be1e1-90e8-4b8c-83b1-d9230a55c12e"
     );
 
     log(response);
@@ -35,7 +35,7 @@ public class KeycloakServiceTest {
     final AccessTokenResponse response =  service.directAccessGrantConfidentialClient(
       REALM,
       "confidential-client",
-      "52dafc8a-a034-49fc-8cf7-b8bacc40fabd",
+      "ddd424f3-6136-47c9-a2d0-61f9a96bf2e4",
       "test-user",
       "password"
     );

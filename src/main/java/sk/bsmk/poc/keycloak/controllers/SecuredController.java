@@ -1,5 +1,6 @@
 package sk.bsmk.poc.keycloak.controllers;
 
+import org.keycloak.AuthorizationContext;
 import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken;
 import org.keycloak.representations.AccessToken;
@@ -37,7 +38,7 @@ public class SecuredController {
   public String getResource(HttpServletRequest request) {
 
     KeycloakSecurityContext keycloakSecurityContext = (KeycloakSecurityContext) request.getAttribute(KeycloakSecurityContext.class.getName());
-    keycloakSecurityContext.getAuthorizationContext();
+    AuthorizationContext context = keycloakSecurityContext.getAuthorizationContext();
 
     return "GET resource";
   }

@@ -4,8 +4,40 @@
   "ssl-required": "external",
   "resource": "authorized-client",
   "credentials": {
-    "secret": "8e225b9f-7bd4-4e8f-9391-3bd02021279f"
+    "secret": "589b162f-cb0a-4bf8-8c30-714c27e65286"
   },
-  "bearer-only": true,
-  "policy-enforcer": {}
+  "policy-enforcer": {
+    "paths": [
+      {
+        "name": "authorized-resource",
+        "path": "/authorized-api/resource",
+        "methods": [
+          {
+            "method": "GET",
+            "scopes": [
+              "urn:view"
+            ]
+          },
+          {
+            "method": "POST",
+            "scopes": [
+              "urn:update"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "authorized-resource",
+        "path": "/authorized-api/owner-resource",
+        "methods": [
+          {
+            "method": "GET",
+            "scopes": [
+              "urn:owner-view"
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

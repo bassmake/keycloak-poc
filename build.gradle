@@ -17,7 +17,7 @@ repositories {
 }
 
 ext {
-  keycloakVersion = '3.2.1.Final'
+  keycloakVersion = '3.4.3.Final'
   resteasyVersion = '3.1.4.Final'
 }
 

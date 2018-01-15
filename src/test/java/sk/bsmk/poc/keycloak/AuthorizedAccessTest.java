@@ -15,7 +15,7 @@ public class AuthorizedAccessTest extends WithRunningApp {
       .get("/authorized-api/resource")
       .then()
       .log().all()
-      .statusCode(401);
+      .statusCode(400);
   }
 
   @Test
@@ -26,7 +26,7 @@ public class AuthorizedAccessTest extends WithRunningApp {
       .get("/authorized-api/owner-resource")
       .then()
       .log().all()
-      .statusCode(200);
+      .statusCode(403);
   }
 
   @Test
@@ -46,6 +46,17 @@ public class AuthorizedAccessTest extends WithRunningApp {
 
     withToken(token)
       .post("/authorized-api/resource")
+      .then()
+      .log().all()
+      .statusCode(403);
+  }
+
+  @Test
+  public void getResourceCanBeAccessedByOwner() {
+    final String token = ownerToken();
+
+    withToken(token)
+      .get("/authorized-api/resource")
       .then()
       .log().all()
       .statusCode(200);

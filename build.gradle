@@ -22,7 +22,6 @@ ext {
 }
 
 dependencies {
-//  compile("com.auth0:java-jwt:3.2.0")
   compile("org.springframework.boot:spring-boot-starter-web")
   compile("org.springframework.boot:spring-boot-starter-security")
   compile("org.springframework.boot:spring-boot-devtools")

@@ -32,13 +32,18 @@ public class SecuredController {
   }
 
   @GetMapping("/authorized-api/resource")
-  public String getAuthorized() {
-    return "GET authorized";
+  public String getResource() {
+    return "GET resource";
   }
 
   @PostMapping("/authorized-api/resource")
-  public String postAuthorized() {
-    return "POST authorized";
+  public String postResource() {
+    return "POST resource";
+  }
+
+  @GetMapping("/authorized-api/owner-resource")
+  public String getOwnerResource() {
+    return "GET owner resource";
   }
 
   private static void logUserInfo(Principal principal) {

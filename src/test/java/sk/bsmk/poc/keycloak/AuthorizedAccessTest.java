@@ -7,7 +7,7 @@ import org.junit.Test;
 public class AuthorizedAccessTest extends WithRunningApp {
 
   @Test
-  public void getAuthorizedIsNotAvailableWithoutToken() {
+  public void getResourceIsNotAvailableWithoutToken() {
     RestAssured.given()
       .port(port)
       .when()
@@ -16,6 +16,17 @@ public class AuthorizedAccessTest extends WithRunningApp {
       .then()
       .log().all()
       .statusCode(401);
+  }
+
+  @Test
+  public void thatOwnerResourceIsNotAvailableForManager() {
+    final String token = managerToken();
+
+    withToken(token)
+      .get("/authorized-api/owner-resource")
+      .then()
+      .log().all()
+      .statusCode(200);
   }
 
   @Test
@@ -37,7 +48,7 @@ public class AuthorizedAccessTest extends WithRunningApp {
       .post("/authorized-api/resource")
       .then()
       .log().all()
-      .statusCode(401);
+      .statusCode(200);
   }
 
   @Test

@@ -16,7 +16,7 @@
     <appender-ref ref="STDOUT" />
   </logger>
 
-  <logger name="org.keycloak" level="info" additivity="false">
+  <logger name="org.keycloak" level="debug" additivity="false">
     <appender-ref ref="STDOUT" />
   </logger>
 

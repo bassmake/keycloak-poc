@@ -6,22 +6,6 @@
   "credentials": {
     "secret": "8e225b9f-7bd4-4e8f-9391-3bd02021279f"
   },
-  "policy-enforcer": {
-    "paths": [
-      {
-        "name" : "resource",
-        "path" : "/authorized-api/resource",
-        "methods" : [
-          {
-            "method": "GET",
-            "scopes" : ["GET"]
-          },
-          {
-            "method": "POST",
-            "scopes" : ["POST"]
-          }
-        ]
-      }
-    ]
-  }
+  "bearer-only": true,
+  "policy-enforcer": {}
 }

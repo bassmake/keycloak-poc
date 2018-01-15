@@ -1,5 +1,6 @@
 package sk.bsmk.poc.keycloak.controllers;
 
+import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken;
 import org.keycloak.representations.AccessToken;
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
 @RestController
@@ -32,7 +34,11 @@ public class SecuredController {
   }
 
   @GetMapping("/authorized-api/resource")
-  public String getResource() {
+  public String getResource(HttpServletRequest request) {
+
+    KeycloakSecurityContext keycloakSecurityContext = (KeycloakSecurityContext) request.getAttribute(KeycloakSecurityContext.class.getName());
+    keycloakSecurityContext.getAuthorizationContext();
+
     return "GET resource";
   }
 

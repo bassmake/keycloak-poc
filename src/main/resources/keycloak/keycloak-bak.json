@@ -1,23 +1,33 @@
 {
-  "paths": [
-    {
-      "name": "resource",
-      "path": "/authorized-api/resource",
-      "type": "urn:just-poc",
-      "methods": [
-        {
-          "method": "GET",
-          "scopes": [
-            "urn:view"
-          ]
-        },
-        {
-          "method": "POST",
-          "scopes": [
-            "urn:update"
-          ]
-        }
-      ]
-    }
-  ]
+  "realm": "keycloak-poc",
+  "auth-server-url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "resource": "authorized-client",
+  "credentials": {
+    "secret": "8e225b9f-7bd4-4e8f-9391-3bd02021279f"
+  },
+  "bearer-only": true,
+  "policy-enforcer": {
+    "paths": [
+      {
+        "name": "resource",
+        "path": "/authorized-api/resource",
+        "type": "urn:just-poc",
+        "methods": [
+          {
+            "method": "GET",
+            "scopes": [
+              "urn:view"
+            ]
+          },
+          {
+            "method": "POST",
+            "scopes": [
+              "urn:update"
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

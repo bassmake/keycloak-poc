@@ -33,13 +33,19 @@ public class LoggingFilter implements ClientResponseFilter {
       requestContext.getEntity()
     );
 
-    final byte[] bytes = IOUtils.toByteArray(responseContext.getEntityStream());
-    responseContext.setEntityStream(new ByteArrayInputStream(bytes));
+    final String payload;
+    if (responseContext.getEntityStream() != null) {
+      final byte[] bytes = IOUtils.toByteArray(responseContext.getEntityStream());
+      responseContext.setEntityStream(new ByteArrayInputStream(bytes));
+      payload = new String(bytes);
+    } else {
+      payload = "";
+    }
 
     log.info(
       "\r\nResponse\r\nStatusCode: {}\r\npayload: {}",
       responseContext.getStatus(),
-      new String(bytes)
+      payload
     );
   }
 
@@ -49,6 +55,9 @@ public class LoggingFilter implements ClientResponseFilter {
       return "none";
     }
     final String[] usernamePassword = BasicAuthHelper.parseHeader(authorization);
+    if (usernamePassword == null) {
+      return "none";
+    }
     return usernamePassword[0] + ":" + usernamePassword[1];
   }
 

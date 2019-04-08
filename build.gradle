@@ -17,8 +17,8 @@ repositories {
 }
 
 ext {
-  keycloakVersion = '3.4.3.Final'
-  resteasyVersion = '3.1.4.Final'
+  keycloakVersion = '4.8.3.Final'
+  resteasyVersion = '3.6.3.Final'
 }
 
 dependencies {
@@ -34,6 +34,7 @@ dependencies {
   testCompile("io.rest-assured:rest-assured:3.0.6")
 }
 
-task wrapper(type: Wrapper) {
-  gradleVersion = '4.5'
+wrapper {
+  gradleVersion = '5.3.1'
+  distributionType = Wrapper.DistributionType.ALL
 }
